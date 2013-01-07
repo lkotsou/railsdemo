@@ -1,0 +1,10 @@
+<h1><%= I18n.t :hello %></h1>
+
+<% @posts.each do |post| %>
+  <div style="border-bottom: 1px dashed black; padding: 10px; background: #ddd">
+    <%= post.title %> <strong>(<%= post.name %> - <%= l(post.created_at, :format => :long) %>)</strong>
+    <p><%= post.content %></p>
+  </div>
+<% end %>
+
+
