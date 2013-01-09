@@ -1,0 +1,19 @@
+<%= link_to "Back", "/" %>
+
+<h1><%= @post.title %></h1>
+<%= image_tag @post.picture.url %>
+<p><%= simple_format @post.content %></p>
+
+<h1>Comments</h1>
+<% @post.comments.each do |comment| %>
+  <div>By <span style="color:yellow"><%= comment.commenter %></span> on <%= l comment.created_at, :format => :short %></div>
+  <div><%= simple_format comment.body %></div>
+  <hr>
+<% end %>
+
+<% if @user %>
+
+<h2>Add a new comment</h2>
+<%= render "comments/form" %>
+
+<% end %>

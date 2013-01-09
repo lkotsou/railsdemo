@@ -10,6 +10,8 @@ Blog::Application.routes.draw do
   get 'home/login'
   get 'home/logout'
   post 'home/sign_up'
+  get 'home/post'
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

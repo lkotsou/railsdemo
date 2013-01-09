@@ -25,12 +25,12 @@ class HomeController < ApplicationController
     user.login = params[:login]
     user.email = params[:email]
     user.password = params[:password]
-    user.save
-    
+    user.save    
     session[:userid] = user.id
-    
     redirect_to "/"
-    
   end
   
+  def post
+    @post= Post.find params[:id]
+  end   
 end

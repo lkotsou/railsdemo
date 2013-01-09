@@ -3,8 +3,9 @@
     <div class="picture">
       <% @posts.each do |post| %>      
         <h1><%= post.title %></h1>
-        <%= image_tag post.picture.url %>
-        <p><%= post.content %></p>
+        <a href="/home/post?id=<%= post.id %>"><%= image_tag post.picture.url %></a>
+        <div><%= pluralize post.comments.count, "comment" %> </div>
+        <p><%= truncate post.content, :length => 100 %></p>
       <% end %>
       <%= paginate @posts %>
     </div>
