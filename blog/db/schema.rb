@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130107165132) do
+ActiveRecord::Schema.define(:version => 20130109171525) do
 
   create_table "comments", :force => true do |t|
     t.string   "commenter"
@@ -27,8 +27,12 @@ ActiveRecord::Schema.define(:version => 20130107165132) do
     t.string   "name"
     t.string   "title"
     t.text     "content"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
   end
 
   create_table "tags", :force => true do |t|
@@ -39,5 +43,15 @@ ActiveRecord::Schema.define(:version => 20130107165132) do
   end
 
   add_index "tags", ["post_id"], :name => "index_tags_on_post_id"
+
+  create_table "users", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "login"
+    t.string   "password"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end

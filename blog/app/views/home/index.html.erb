@@ -1,10 +1,56 @@
-<h1><%= I18n.t :hello %></h1>
-
-<% @posts.each do |post| %>
-  <div style="border-bottom: 1px dashed black; padding: 10px; background: #ddd">
-    <%= post.title %> <strong>(<%= post.name %> - <%= l(post.created_at, :format => :long) %>)</strong>
-    <p><%= post.content %></p>
+<div class="row">
+  <div class="span8">
+    <div class="picture">
+      <% @posts.each do |post| %>      
+        <h1><%= post.title %></h1>
+        <%= image_tag post.picture.url %>
+        <p><%= post.content %></p>
+      <% end %>
+      <%= paginate @posts %>
+    </div>
   </div>
-<% end %>
+  <div class="span4">
+    <div class="picture">
+      <h1>Infos</h1>
+      <a class="twitter-timeline" href="https://twitter.com/Beauty_Wishes" data-widget-id="288716021177647104">Tweets by @Beauty_Wishes</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <h1>Best James Bond Ever</h1>
+      <iframe width="300" height="180" src="http://www.youtube.com/embed/yZ8ooFjxqZI?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
 
+<div class="row">   
+  <div class="span12">
+    <hr>
+  </div>
+</div>
 
+<div class="row">   
+  <div class="span4">
+    <div class="picture">
+      <h1>Talk About Life</h1>
+      <a href= "#"><img width="290" src="http://media.getthefive.com/cache/uploads/article_images/stockvault-barbwire127303_grid.jpg"></a>
+    </div>
+  </div>
+  <div class="span4">
+    <div class="picture">
+      <h1>Talk About Music</h1>          
+      <a href= "#"><img width="290" src="http://media.getthefive.com/cache/uploads/article_images/nicolascage099_grid.jpg"></a>
+    </div>        
+  </div>
+  <div class="span4">
+    <div class="picture">
+      <h1>Talk About Cars</h1>            
+      <a href= "#"><img width="290" src="http://media.getthefive.com/cache/uploads/article_images/license_grid.jpg"></a>
+    </div>        
+  </div>
+</div>
+<div class="row">
+  <div class="span12">
+    <div class="footer">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </div>
+  </div>
+</div>

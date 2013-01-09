@@ -58,3 +58,8 @@ h2 { font-size: 14px; font-family: "Great Vibe", "Arial", sans-serif;}
   border: 1px solid #000;
   padding:3px;
 }
+
+.modal {
+  font-family: verdana, sans-serif; 
+  color: black;
+}

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Beauty Wishes Blog</title>
+    <!-- Bootstrap -->
+    <%= stylesheet_link_tag    "//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/css/bootstrap.min.css", :media => "all" %>
+    <%= stylesheet_link_tag    "site", :media => "all" %>
+
+    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/bootstrap.min.js" %>
+    <%= csrf_meta_tags %>
+    
+    <script>
+      $(function() {
+        //$('#myModal').modal();
+      });
+    </script>
+  </head>
+  <body>
+    
+     <!-- Modal -->
+    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Please Login Here</h3>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" id="flogin" action="/home/login">
+          <div class="control-group">
+            <label class="control-label" for="inputLogin">Login</label>
+            <div class="controls">
+              <input type="text" id="inputLogin" name="login" placeholder="Login">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="inputPassword">Password</label>
+            <div class="controls">
+              <input type="password" id="inputPassword" name="password" placeholder="Password">
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="controls">
+              <label class="checkbox">
+                <input type="checkbox"> Remember me
+              </label>
+              <button type="submit" class="btn btn-primary">Sign in</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+
+      </div>
+    </div>
+    <!-- Modal -->
+    
+    <!-- Modal -->
+    <div id="mySignUpModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Please Sign Up Here</h3>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" id="signup" action="/home/sign_up" method="POST">
+          <div class="control-group">
+            <label class="control-label" for="inputFirstName">First Name</label>
+            <div class="controls">
+              <input type="text" id="inputFirstName" name="first_name" placeholder="John">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="inputLastName">Last Name</label>
+            <div class="controls">
+              <input type="text" id="inputLastName" name="last_name" placeholder="Doe">
+            </div>
+          </div> 
+          <div class="control-group">
+            <label class="control-label" for="inputLogin">Login</label>
+            <div class="controls">
+              <input type="text" id="inputLogin" name="login" placeholder="JohnDoe">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="inputEmail">Email</label>
+            <div class="controls">
+              <input type="text" id="inputEmail" name="email" placeholder="John.Doe@johndoe.com">
+            </div>
+          </div>                   
+          <div class="control-group">
+            <label class="control-label" for="inputPassword">Password</label>
+            <div class="controls">
+              <input type="password" id="inputPassword" name="password" placeholder="Secret">
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="controls">
+              <button type="submit" class="btn btn-primary">Sign in</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="container">
+      <!-- Header -->
+      <div class="row" >
+        <div class="span12">
+          <div id="header">
+            <img src="http://www.beautywishes.gr/assets/18/img/logo.png">
+            <h1>Beauty Wishes Blog</h1>
+            <ul id="menu">
+              <li><a href="#"><img src="/assets/twitter.png" style="height:50px"></a></li>
+              <li><a href="#"><img src="/assets/fb.png" style="height:50px"></a></li>
+              
+              <% if @user.nil? %>
+                <li><a href="#mySignUpModal" data-toggle="modal">SIGN UP</a></li>
+                <li><a href="#myModal" data-toggle="modal">LOGIN</a></li>
+              <% else %>
+                <li><a href="/home/logout">LOGOUT</a></li>
+                <li>Welcome <%= @user.login %></li>
+              <% end %>
+            </ul>
+            <div class="clear"></div>          
+          </div>
+        </div>
+      </div>
+      <!-- Fin eader -->
+      <div class="row">
+        <div class="span12">
+          <ul id="menu">
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">ARTICLES</a></li>
+            <li><a href="#">ABOUT US</a></li>
+            <li><a href="#">ADVERTISING</a></li>
+            <li><a href="#">CONTACT</a></li>
+          </ul>    
+        </div>    
+      </div>
+      
+      <%= yield %>
+    </div>
+  </body>
+</html>

@@ -1,9 +1,15 @@
 Blog::Application.routes.draw do
+  resources :users
+
+
   resources :posts do
     resources :comments
   end
 
   get "home/index"
+  get 'home/login'
+  get 'home/logout'
+  post 'home/sign_up'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

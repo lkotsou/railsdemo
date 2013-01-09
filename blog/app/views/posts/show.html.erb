@@ -27,6 +27,10 @@
 <%= render "comments/form" %>
  
 <br />
+
+<%= image_tag @post.picture.url %>
+<%= image_tag @post.picture.url(:medium) %>
+<%= image_tag @post.picture.url(:thumb) %>
  
 <%= link_to 'Edit Post', edit_post_path(@post) %> |
 <%= link_to 'Back to Posts', posts_path %> |

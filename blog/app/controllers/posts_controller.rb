@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-   http_basic_authenticate_with :name => "dhh", :password => "secret", :except => [:index, :show]
+   #http_basic_authenticate_with :name => "dhh", :password => "secret", :except => [:index, :show]
    
   # GET /posts
   # GET /posts.json
@@ -80,6 +80,9 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to posts_url }
       format.json { head :no_content }
+    end
+    def create
+      @post = Post.create( params[:post] )
     end
   end
 end
